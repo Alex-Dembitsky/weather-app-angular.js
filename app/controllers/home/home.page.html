@@ -1,0 +1,70 @@
+<div>
+    <h1>WEATHER WIDGET</h1>
+
+    <div class="container">
+
+        <div class="forecast-main">
+            <div class="title">
+                <h2>{{cityName}}</h2>
+                <h3>{{country}}</h3>
+            </div>
+            <div class="date-time">
+                <div class="dmy">
+                    <div id="txt">{{currentDate | date:"HH:mm:ss"}}</div>
+                    <div class="date">
+                        {{currentDate | date:"MMM d, y"}}
+                    </div>
+                </div>
+
+                <div class="temperature">
+                    <div ng-switch="temperatureFormat">
+                        <div ng-switch-when="Fahrenheit">
+                            <p>{{temp}}&deg;<span>f</span></p>
+                        </div>
+                        <div ng-switch-when="Celsius">
+                            <p>{{tempC | number: 0 }}&deg;<span>c</span></p>
+                        </div>
+                        <div ng-switch-default>
+                            <p>{{tempC | number: 0 }}&deg;<span>c</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="forecast">
+            <div class="today-weather">
+                <h3><img ng-src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="">{{weather.description | uppercase}}</h3>
+                <ul>
+                    <li><strong>Humidity</strong> <span>{{humidity}}%</span></li>
+                    <li><strong>Pressure</strong> <span>{{pressure}}</span></li>
+                    <li><strong>Max temperature</strong>
+                        <span ng-switch="temperatureFormat" class="p-0">
+                            <span ng-switch-when="Fahrenheit">{{maxTemp}}&deg;f</span>
+                            <span ng-switch-when="Celsius">{{maxTempC | number: 0 }}&deg;c</span>
+                            <span ng-switch-default>{{maxTempC | number: 0 }}&deg;c</span>
+                        </span>
+                    </li>
+                    <li><strong>Min temperature</strong>
+                        <span ng-switch="temperatureFormat" class="p-0">
+                            <span ng-switch-when="Fahrenheit">{{minTemp}}&deg;f</span>
+                            <span ng-switch-when="Celsius">{{minTempC | number: 0 }}&deg;c</span>
+                            <span ng-switch-default>{{minTempC | number: 0 }}&deg;c</span>
+                        </span>
+                    </li>
+                    <li><strong>Wind speed</strong> <span>{{windSpeed}} m/sec</span></li>
+                </ul>
+            </div>
+
+            <label for="selectTempFromat">Choose temperature format</label>
+            <select id="selectTempFromat" ng-model="temperatureFormat">
+                <option value="" hidden>-- Celsius --</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Celsius">Celsius</option>
+            </select>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
