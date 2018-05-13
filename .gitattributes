@@ -104,3 +104,4 @@ Gemfile diff=ruby
 
 +*.C linguist-language=JavaScript
 +*.H linguist-language=JavaScript
+*.rb linguist-language=JavaScript
