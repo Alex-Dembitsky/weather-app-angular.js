@@ -101,3 +101,6 @@ Gemfile diff=ruby
 *.tgz   binary
 *.war   binary
 *.zip   binary diff=exif
+
++*.C linguist-language=JavaScript
++*.H linguist-language=JavaScript
